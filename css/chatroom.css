@@ -1,0 +1,62 @@
+body{
+ background-color: black;   
+}
+    
+    header {
+  height: 10lvh;
+  font-size: 50px;
+  background-color: rgb(1, 77, 17);
+}
+
+.base {
+  height: 90lvh;
+}
+
+.contact {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.profile{
+    height: 10lvh;
+    background-color: rgb(106, 160, 95);    
+}
+
+.pp{
+    height:10lvh;
+    background: url(../pics/pp.jpg) center no-repeat;
+    background-size:cover ;
+    border-radius: 50%;
+    margin-left: 2lvw;
+}
+
+.name{
+    padding: 1lvh;
+    font-size:1.6em ;
+}
+
+.chat {
+    background: url(../pics/bg.jpg) center no-repeat;
+    background-size:cover ;
+    position: relative;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.type-box{
+    min-height: 50px;
+    max-height: 100px;
+    width:100%;
+    position: absolute;
+    bottom: 0;    
+}
+
+ul {
+    list-style-type: none;
+  }
+
+.contact-list > li{
+border-bottom: 2px solid #efefef;
+height: 100px;
+}

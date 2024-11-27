@@ -10,9 +10,6 @@ body {
   font-size: 32px;
   color: #efefef;
   text-decoration: none;
-  position: fixed;
-  top: 50%;
-  right: 50%;
   transform: translate(50%, -50%);
 }
 
@@ -22,6 +19,14 @@ body {
   color: darkgrey;
 }
 
+ul {
+  list-style-type: none;
+}
+
+li{
+  margin-top: 50px;
+  margin-left: 100px;
+}
 form * {
   color: #ffffff;
   outline: none;
