@@ -38,7 +38,6 @@
                   type="button"
                   id="button-addon1"
                 >
-                  serch
                 </button>
                 <input
                   type="text"
@@ -138,7 +137,7 @@
             </div>
           </div>
           <!-- massages  -->
-          <div class="massages d-flex">
+          <div id="massages" class="massages d-flex">
             <div class="your-massage">hello mr. zombie. what is your favorit food?</div>
             <div class="they-massage">brainZ!</div>
             <div class="your-massage">oh ok.</div>
@@ -149,12 +148,15 @@
               <button class="btn" type="button">
                 <i class="bi bi-upload icon"></i>
               </button>
+              <div id="box-chat" class="form-control">
               <input
                 type="text"
+                id="text-box"
                 class="form-control"
                 placeholder="write a massage..."
                 aria-label="Recipient's username with two button addons"
               />
+            </div>
               <button class="btn" type="button">
                 <i class="bi bi-emoji-smile icon"></i>
               </button>
@@ -173,4 +175,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="../js/chatroom.js"></script>
 </html>
