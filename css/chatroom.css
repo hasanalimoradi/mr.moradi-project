@@ -16,54 +16,35 @@ header {
   justify-content: center;
 }
 
-aside{
+main {
+  background-color: bisque;
+  width: 70%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(14, 1, 1, 0.288);
+  outline: 1px solid slategrey;
+}
+
+/* ----- contacts ---- */
+
+aside {
   background-color: aqua;
   width: 30%;
   height: 100%;
   overflow-y: scroll;
 }
 
-main{
-  background-color: bisque;
-  width: 70%;
-  height: 100%;
-}
-
 .contact {
-}
-
-.profile-chat {
-  height: 12%;
-  background-color: rgb(106, 160, 95);
-}
-
-.pp {
-  width: 10%;
-  height: 10lvh;
-  background: url(../pics/pp.jpg) center no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  margin-left: 2lvw;
-}
-
-.name-profile {
-  padding: 0.8lvh;
-  font-size: 1.4em;
-}
-
-.chat {
-  background: url(../pics/bg.jpg) center no-repeat;
-  background-size: cover;
-  height: 80%;
-  padding: 0;
-  margin: 0;
-}
-
-.input {
-  height: 8%;
-  width: 100%;
-  background-color: aliceblue;
-  z-index: 99;
 }
 
 ul {
@@ -84,63 +65,52 @@ ul {
 }
 
 .text-end {
-  
 }
 
-/* -------------------------------------------- */
-
-::-webkit-scrollbar {
-  width: 0.5em;
+/* --------- profile chat ----- */
+.profile-chat {
+  height: 12%;
+  background-color: rgb(106, 160, 95);
 }
 
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+.pp {
+  width: 8%;
+  height: 10lvh;
+  background: url(../pics/pp.jpg) center no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin-left: 2lvw;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(14, 1, 1, 0.288);
-  outline: 1px solid slategrey;
+.pp:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
 }
 
-.icon {
-  font-size: 1.4rem;
-  color: #525252;
+.name-profile {
+  padding: 0.8lvh;
+  font-size: 1.4em;
 }
-
-.btn-custom {
-  color: black;
-}
-
-.input-gp {
-  margin: 10px;
-  padding: 10px;
-}
-
-.setting i {
-  font-size: 1.8rem;
-}
-
-.setting {
-  margin-top: 7px;
-}
-
-.input-gp-type {
+/* ------- chat box ------- */
+.chat {
+  background: url(../pics/bg.jpg) center no-repeat;
+  background-size: cover;
+  height: 83%;
   padding: 0;
-}
-
-.input-gp-type * {
-  border-radius: 0;
-  border: 0;
+  margin: 0;
 }
 
 .your-massage {
   background-color: aqua;
   width: fit-content;
   max-width: 500px;
-  padding: 5px;
+  height: fit-content;
+  padding: 10px;
   margin: 10px;
   margin-right: 10px;
   margin-left: auto;
+  overflow-x: wrap;
+  overflow-wrap: break-word;
 }
 
 .they-massage {
@@ -151,20 +121,41 @@ ul {
   margin: 10px;
 }
 
-.massages{
-  height: 84%;
-  overflow:scroll;
+.massages {
+  height: 100%;
+  overflow: scroll;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 2;
 }
 
-.massages div{
-  display: block;
+
+.massages div {
   border-radius: 5px;
 }
 
-.box-chat:focus{
-  border: 0;
-  outline: 0;
+
+/* --------- input massage --------  */
+
+.input-box {
+  height: 5%;
+  width: 100%;
+  background-color: aliceblue;
+  z-index: 99;
+  display: flex;
+}
+
+.input-text {
+  height: 87%;
+  width: 100%;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.input-icon {
+  height: 100%;
+  width: 5%;
+  background-color: #525252;
 }
