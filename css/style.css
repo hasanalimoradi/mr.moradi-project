@@ -1,81 +1,55 @@
-/* back ground */
 body {
-  background-color: rgb(30, 30, 30);
+  background-color: black;
 }
 
-.buttom {
-  border: 1px solid #efefef;
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 32px;
-  color: #efefef;
-  text-decoration: none;
-  transform: translate(50%, -50%);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.buttom:hover {
-  border: 5px solid brown;
-  border-radius: 15px;
-  color: darkgrey;
-}
-
-ul {
-  list-style-type: none;
-}
-
-li{
-  margin-top: 50px;
-  margin-left: 100px;
-}
-form * {
-  color: #ffffff;
-  outline: none;
-  border: none;
-}
-form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
-}
-form {
-  height: 520px;
-  width: 400px;
-  background-color: rgba(49, 49, 49, 0.13);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: -3px -3px 10px rgb(219, 219, 219);
-  padding: 50px 35px;
-}
-
-label {
-  display: block;
-  margin-top: 30px;
-  font-size: 16px;
-}
-input {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
+.buttons-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+  width: 100vw;
 }
 
 button {
-  margin-top: 50px;
-  width: 30%;
-  background-color: #3f3f3f;
-  color: #e0e0e0;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 170px;
+  height: 70px;
+  border-radius: 40px;
+  outline: none;
+  border: 2px solid #2c4766;
+  background: transparent;
+}
+
+button:hover {
+  border-color: #0fe;
+  background-color: #1f293a;
+  transform: scale(1.1);
+  transition: 0.5s ease;
+}
+
+button:hover > a {
+  color: #0fe;
+  transition: 0.5s ease;
+}
+
+.buttons-box:hover > :not(:hover) {
+  transition: 0.5s ease;
+}
+
+button:hover ~ .button:not(:hover) {
+  filter: blur(50%);
+  opacity: 0.5;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #fff;
 }

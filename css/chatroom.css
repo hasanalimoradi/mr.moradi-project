@@ -3,68 +3,23 @@ body {
 }
 
 header {
+  margin: 0;
   height: 10lvh;
   font-size: 50px;
   background-color: rgb(1, 77, 17);
 }
 
 .base {
-  height: 90lvh;
+  height: 88lvh;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
 }
 
-.contact-setting {
+main {
+  background-color: bisque;
+  width: 70%;
   height: 100%;
-  overflow-y: auto;
-}
-
-.profile {
-  z-index: 1;
-  height: 10%;
-  background-color: rgb(106, 160, 95);
-}
-
-.pp {
-  height: 8lvh;
-  background: url(../pics/pp.jpg) center no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  margin-left: 2lvw;
-}
-
-.name-profile {
-  padding: 0.8lvh;
-  font-size: 1.4em;
-}
-
-.chat {
-  background: url(../pics/bg.jpg) center no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 100%;
-  padding: 0;
-}
-
-.type-box {
-  height: 5%;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.contact-list li {
-  border-bottom: 2px solid #efefef;
-  height: 75px;
-  position: relative;
-}
-
-.name {
-  font-size: 1.2rem;
-}
-
-.text-end {
-  position: absolute;
-  bottom: 3px;
 }
 
 ::-webkit-scrollbar {
@@ -80,45 +35,82 @@ ul {
   outline: 1px solid slategrey;
 }
 
-.icon {
-  font-size: 1.4rem;
-  color: #525252;
+/* ----- contacts ---- */
+
+aside {
+  background-color: aqua;
+  width: 30%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
-.btn-custom {
-  color: black;
+.contact {
 }
 
-.input-gp {
+ul {
+  list-style-type: none;
+}
+
+.contact-list li {
+  padding: 5px;
   margin: 10px;
-  padding: 10px;
+  height: 100px;
+  border-bottom: 2px solid;
+  border-color: #efefef;
+  background-color: #525252;
 }
 
-.setting i {
-  font-size: 1.8rem;
+.name {
+  font-size: 1.2rem;
 }
 
-.setting {
-  margin-top: 7px;
+.text-end {
 }
 
-.input-gp-type {
+/* --------- profile chat ----- */
+.profile-chat {
+  height: 12%;
+  background-color: rgb(106, 160, 95);
+}
+
+.pp {
+  width: 8%;
+  height: 10lvh;
+  background: url(../pics/pp.jpg) center no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin-left: 2lvw;
+}
+
+.pp:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
+}
+
+.name-profile {
+  padding: 0.8lvh;
+  font-size: 1.4em;
+}
+/* ------- chat box ------- */
+.chat {
+  background: url(../pics/bg.jpg) center no-repeat;
+  background-size: cover;
+  height: 83%;
   padding: 0;
-}
-
-.input-gp-type * {
-  border-radius: 0;
-  border: 0;
+  margin: 0;
 }
 
 .your-massage {
   background-color: aqua;
   width: fit-content;
   max-width: 500px;
-  padding: 5px;
+  height: fit-content;
+  padding: 10px;
   margin: 10px;
   margin-right: 10px;
   margin-left: auto;
+  overflow-x: wrap;
+  overflow-wrap: break-word;
 }
 
 .they-massage {
@@ -129,20 +121,41 @@ ul {
   margin: 10px;
 }
 
-.massages{
-  height: 84%;
-  overflow:scroll;
+.massages {
+  height: 100%;
+  overflow: scroll;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 2;
 }
 
-.massages div{
-  display: block;
+
+.massages div {
   border-radius: 5px;
 }
 
-.box-chat:focus{
-  border: 0;
-  outline: 0;
+
+/* --------- input massage --------  */
+
+.input-box {
+  height: 5%;
+  width: 100%;
+  background-color: aliceblue;
+  z-index: 99;
+  display: flex;
+}
+
+.input-text {
+  height: 87%;
+  width: 100%;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.input-icon {
+  height: 100%;
+  width: 5%;
+  background-color: #525252;
 }
