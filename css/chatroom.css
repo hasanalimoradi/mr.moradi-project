@@ -8,28 +8,16 @@ body {
   background-color: var(--second);
 }
 
-a{
+a {
   text-decoration: none;
   color: unset;
 }
 
-header {
-  margin: 0;
-  height: 10lvh;
-  font-size: 50px;
-  background-color: var(--second);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header {
-  width: 900px;
-  color: var(--th);
-}
-
 aside {
   display: flex;
+  background-color: var(--second);
+  width: 30%;
+  height: 100%;
 }
 
 .base {
@@ -47,48 +35,71 @@ ul {
   list-style-type: none;
 }
 
-::-webkit-scrollbar {
-  width: 0.5em;
-}
-
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(14, 1, 1, 0.288);
-  outline: 1px solid slategrey;
-}
-
 .side-bar {
   width: 15%;
   padding: 0;
+}
+
+/* --------- scrollbar --------  */
+
+.contact-list::-webkit-scrollbar {
+  width: 1em;
+}
+
+.contact-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--first);
+}
+
+.contact-list::-webkit-scrollbar-thumb {
+  background-color: var(--second);
+  outline: 1px solid slategrey;
+}
+
+.massages::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.massages::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--first);
+}
+
+.massages::-webkit-scrollbar-thumb {
+  background-color: var(--second);
+  outline: 1px solid slategrey;
+}
+
+/* ------ header -----------  */
+
+header {
+  margin: 0;
+  height: 10lvh;
+  font-size: 50px;
+  background-color: var(--second);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 900px;
+  color: var(--th);
 }
 
 /* --------- setting --------- */
 
 .setting {
   justify-self: center;
-  align-self: center; 
-}
-
-.setting i {
+  align-self: center;
 }
 
 /* ----- contacts ---- */
-
-aside {
-  background-color: var(--second);
-  width: 30%;
-  height: 100%;
-  overflow-y: scroll;
-}
 
 .contact-list {
   width: 85%;
   padding: 0;
   margin: 0;
   border-radius: 30%px;
+  overflow-y: scroll;
 }
 
 .contact {
@@ -139,7 +150,27 @@ aside {
 /* --------- profile chat ----- */
 .profile-chat {
   height: 12%;
-  background-color: rgb(106, 160, 95);
+  background-color: var(--first);
+  display: flex;
+}
+
+.name-profile {
+  margin: 10px;
+  color: var(--th);
+  font-size: 2em;
+}
+
+.last-seen {
+  margin: 20px;
+  color: #efefef;
+  font-size: 0.9em;
+}
+
+.profile-name-box{
+  display: flex;
+  margin-right: 10px;
+  justify-content: space-between;
+  width: 92%;
 }
 
 .pp {
@@ -156,10 +187,15 @@ aside {
   transition: 0.5s;
 }
 
-.name-profile {
-  padding: 0.8lvh;
-  font-size: 1.4em;
+.search, .call , .more{
+  width: 50px;
 }
+
+
+.icons{
+  width: 150px;
+}
+
 /* ------- chat box ------- */
 .chat {
   background: url(../pics/bg.jpg) center no-repeat;
@@ -192,7 +228,7 @@ aside {
 
 .massages {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 2;
@@ -207,14 +243,17 @@ aside {
 .input-box {
   height: 5%;
   width: 100%;
-  background-color: aliceblue;
+  background-color: #efefef;
   z-index: 99;
   display: flex;
 }
 
 .input-text {
-  height: 87%;
+  height: 100%;
   width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 .input-text:focus {
@@ -224,5 +263,6 @@ aside {
 .input-icon {
   height: 100%;
   width: 5%;
-  background-color: #525252;
+  background-color: transparent;
+  border: none;
 }
