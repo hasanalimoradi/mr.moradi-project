@@ -175,17 +175,19 @@ header {
 }
 
 .pp {
-  width: 8%;
-  height: 10lvh;
-  background: url(../pics/pp.jpg) center no-repeat;
-  background-size: cover;
   border-radius: 50%;
-  margin-left: 2lvw;
+  width: 100px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .pp:hover {
-  transform: scale(1.3);
-  transition: 0.5s;
+  transform: scale(1.2);
+}
+
+.pp img {
+  width: 100px;
+  height: 100%;
 }
 
 .search, .call , .more{
