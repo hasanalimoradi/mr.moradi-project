@@ -63,7 +63,7 @@ function loadUsers() {
     const ppDiv = document.createElement("div");
     ppDiv.className = "contact-pp";
     const img = document.createElement("img");
-    img.src = user.profilePicture || "https://via.placeholder.com/50?text=User";
+    img.src = user.profilePicture;
     img.alt = "profile";
     ppDiv.appendChild(img);
 
@@ -72,7 +72,7 @@ function loadUsers() {
 
     const nameDiv = document.createElement("div");
     nameDiv.className = "name";
-    nameDiv.textContent = user.name || "نامشخص";
+    nameDiv.textContent = user.name;
 
     const lastMessageDiv = document.createElement("div");
     lastMessageDiv.className = "text-end";
@@ -83,7 +83,43 @@ function loadUsers() {
     userDiv.appendChild(ppDiv);
     userDiv.appendChild(contactDiv);
     usersList.appendChild(userDiv);
+
+    userDiv.addEventListener("click", () => selectUser(user));
   });
+}
+
+function selectUser(user) {
+  const profileChat = document.getElementById("profileChat");
+  const ppDiv = profileChat.querySelector(".pp img");
+  ppDiv.src = user.profilePicture;
+  ppDiv.alt = user.name;
+  const nameProfileDiv = profileChat.querySelector(".name-profile");
+  nameProfileDiv.textContent = user.name;
+
+
+  const chatBox = document.getElementById("massages")
+  chatBox.innerHTML = "";
+  const userChat = chats.find(chat => chat.userId === user.id);
+  let messagesUser = Object.values(userChat.message)
+  messagesUser.forEach(message => {
+    console.log(message)
+    
+    if (message.sender == "user") {
+      const text = message.text
+      const messageBox = document.createElement("div");
+      messageBox.className = "your-massage";
+      messageBox.textContent = text;
+      chatBox.appendChild(messageBox)
+    }
+    else {
+      const text = message.text
+      const messageBox = document.createElement("div");
+      messageBox.className = "they-massage";
+      messageBox.textContent = text;
+      chatBox.appendChild(messageBox)
+    }
+
+  })
 }
 
 loadUsers();
