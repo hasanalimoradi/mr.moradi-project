@@ -109,9 +109,10 @@ header {
   justify-content: space-between;
 }
 
-.contact-list li {
+.user-div {
   padding: 5px;
   height: 100px;
+  width: 95%;
   border-bottom: rgb(0, 76, 82) 5px solid;
   background-color: var(--first);
   display: flex;
