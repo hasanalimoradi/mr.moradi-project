@@ -33,45 +33,37 @@ const users = [
 ];
 
 const chats = [
-  { userId: 1, message: { user: "hi do", them: "hi" } },
-  { userId: 2, message: { user: "hi do", them: "hi" } },
-  { userId: 3, message: { user: "hi do", them: "hi" } },
-  { userId: 4, message: { user: "hi do", them: "hi" } },
-  { userId: 5, message: { user: "hi do", them: "hi" } },
-  { userId: 6, message: { user: "hi do", them: "hi" } },
-  { userId: 7, message: { user: "hi do", them: "hi" } },
-  { userId: 8, message: { user: "hi do", them: "hi" } },
-  { userId: 9, message: { user: "hi do", them: "hi" } },
-  { userId: 10, message: { user: "hi do", them: "hi" } },
+  { userId: 1, message: { 1: { sender: "user", text: "hi yek" }, 2: { sender: "yek", text: "hi" }, } },
+  { userId: 2, message: { 1: { sender: "user", text: "hi do" }, 2: { sender: "do", text: "hi" }, 3: { sender: "user", text: "whats up" } } },
+  { userId: 3, message: { 1: { sender: "user", text: "hi se" }, 2: { sender: "se", text: "hi" }, } },
+  { userId: 4, message: { 1: { sender: "user", text: "hi chahar" }, 2: { sender: "chahar", text: "hi" }, 3: { sender: "user", text: "whats up" } } },
+  { userId: 5, message: { 1: { sender: "user", text: "hi panj" }, 2: { sender: "panj", text: "hi" }, } },
+  { userId: 6, message: { 1: { sender: "user", text: "hi shesh" }, 2: { sender: "shesh", text: "hi" }, 3: { sender: "user", text: "whats up" } } },
+  { userId: 7, message: { 1: { sender: "user", text: "hi haft" }, 2: { sender: "haft", text: "hi" }, } },
+  { userId: 8, message: { 1: { sender: "user", text: "hi hasht" }, 2: { sender: "hasht", text: "hi" }, 3: { sender: "user", text: "whats up" } } },
+  { userId: 9, message: { 1: { sender: "user", text: "hi noh" }, 2: { sender: "noh", text: "hi" }, } },
+  { userId: 10, message: { 1: { sender: "user", text: "hi dah" }, 2: { sender: "dah", text: "hi" }, 3: { sender: "user", text: "whats up" } } },
 ];
 
 function loadUsers() {
-
   const usersList = document.getElementById("contactList");
 
   users.forEach(user => {
-
-    const userChats = chats.filter(chat => chat.userId === user.id);
-
+    const userChat = chats.find(chat => chat.userId === user.id);
     let lastMessage = "هیچ پیامی وجود ندارد.";
-    if (userChats.length > 0) {
-        const lastChat = userChats[userChats.length - 1]?.message; 
-        if (lastChat && lastChat.them) {
-            lastMessage = lastChat.them; 
-        } else if (lastChat && lastChat.user) {
-            lastMessage = lastChat.user;
-        }
-    }
+    const messageKeys = Object.keys(userChat.message);
+    const lastKey = Math.max(...messageKeys.map(Number));
+    const lastMessageObj = userChat.message[lastKey];
+
+    lastMessage = lastMessageObj.text;
 
     const userDiv = document.createElement("div");
     userDiv.className = "user-div";
 
-
     const ppDiv = document.createElement("div");
     ppDiv.className = "contact-pp";
-
     const img = document.createElement("img");
-    img.src = user.profilePicture;
+    img.src = user.profilePicture || "https://via.placeholder.com/50?text=User";
     img.alt = "profile";
     ppDiv.appendChild(img);
 
@@ -80,7 +72,7 @@ function loadUsers() {
 
     const nameDiv = document.createElement("div");
     nameDiv.className = "name";
-    nameDiv.textContent = user.name;
+    nameDiv.textContent = user.name || "نامشخص";
 
     const lastMessageDiv = document.createElement("div");
     lastMessageDiv.className = "text-end";
@@ -88,14 +80,10 @@ function loadUsers() {
 
     contactDiv.appendChild(nameDiv);
     contactDiv.appendChild(lastMessageDiv);
-
     userDiv.appendChild(ppDiv);
     userDiv.appendChild(contactDiv);
-
-
     usersList.appendChild(userDiv);
   });
 }
-
 
 loadUsers();
