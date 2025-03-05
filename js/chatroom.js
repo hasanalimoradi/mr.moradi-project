@@ -103,7 +103,7 @@ function selectUser(user) {
   let messagesUser = Object.values(userChat.message)
   messagesUser.forEach(message => {
     console.log(message)
-    
+
     if (message.sender == "user") {
       const text = message.text
       const messageBox = document.createElement("div");

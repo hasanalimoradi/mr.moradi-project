@@ -12,9 +12,7 @@
   </head>
   <body>
     <header>
-      <marquee behavior="viewport" direction="" class="header"
-        >hasan chatroom</marquee
-      >
+      <marquee behavior="viewport" direction="" class="header">hasan chatroom</marquee>
     </header>
     <div class="base">
       <aside>
@@ -37,9 +35,15 @@
               <div class="last-seen">last seen resently...</div>
             </div>
             <div class="icons">
-              <div class="search"></div>
-              <div class="call"></div>
-              <div class="more"></div>
+              <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="call">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="more">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -55,16 +59,23 @@
         </div>
         <!-- ------------input massage ---------------->
         <div class="input-box">
-          <button class="input-icon"></button>
+          <button class="input-icon">
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
           <input
             type="text"
             class="input-text"
-            placeholder="write a massage..."
+            placeholder="write a message..."
             id="text-box"
-            aria-label="Recipient's username with two button addons"
+            name="message"
+            autocomplete="off"
           />
-          <button class="input-icon"></button>
-          <button class="input-icon"></button>
+          <button class="input-icon">
+            <i class="fa-regular fa-face-smile"></i>
+          </button>
+          <button class="input-icon">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
         </div>
       </main>
     </div>

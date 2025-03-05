@@ -135,3 +135,26 @@ input:focus ~ label {
   text-decoration: none;
   font-weight: 600;
 }
+
+.input-box input:focus + label {
+  transform: translateY(-20px);
+  color: var(--primary-color);
+}
+
+.btn {
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.input-box input:invalid {
+  border-color: #dc3545;
+}
+
+.btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
