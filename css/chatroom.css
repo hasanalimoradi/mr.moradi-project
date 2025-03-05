@@ -2,6 +2,11 @@
   --first: #2c4766;
   --second: #1f293a;
   --th: #0ef;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --spacing-unit: 1rem;
 }
 
 body {
@@ -197,6 +202,12 @@ header {
 
 .icons{
   width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 1.5em;
 }
 
 /* ------- chat box ------- */
@@ -268,4 +279,15 @@ header {
   width: 5%;
   background-color: transparent;
   border: none;
+  transition: transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 1.5em;
 }
+
+.input-icon:hover {
+  transform: scale(1.1);
+}
+
+
