@@ -2,13 +2,38 @@
   "name": "mr.moradi",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "nodemon express/server.js",
+    "start": "node express/server.js",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "compression": "^1.8.0",
+    "express": "^4.21.2",
+    "helmet": "^7.2.0"
+  },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "Modern Chat Room Application",
+  "main": "express/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasanalimoradi/mr.moradi-project.git"
+  },
+  "keywords": [
+    "chat",
+    "login",
+    "express",
+    "node"
+  ],
+  "author": "Hasan Alimoradi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasanalimoradi/mr.moradi-project/issues"
+  },
+  "homepage": "https://github.com/hasanalimoradi/mr.moradi-project#readme"
 }
