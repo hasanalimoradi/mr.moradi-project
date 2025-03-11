@@ -1,19 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const chatBox = document.getElementById("massages");
   const messageInput = document.getElementById("text-box");
+  const messageForm = document.getElementById("messageForm");
 
-  messageInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" && messageInput.value.trim() !== "") {
-      addMessage(messageInput.value, "your-massage");
+  messageForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (messageInput.value.trim() !== "") {
+      sendMessage(messageInput.value.trim());
       messageInput.value = "";
     }
   });
 
-  function addMessage(text, sender) {
+  messageInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      messageForm.dispatchEvent(new Event("submit"));
+    }
+  });
+
+  function sendMessage(text) {
     const messageDiv = document.createElement("div");
-    messageDiv.classList.add(sender);
+    messageDiv.classList.add("your-massage");
     messageDiv.textContent = text;
 
+    const chatBox = document.getElementById("massages");
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
   }
