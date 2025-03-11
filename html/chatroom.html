@@ -12,7 +12,9 @@
   </head>
   <body>
     <header>
-      <marquee behavior="viewport" direction="" class="header">hasan chatroom</marquee>
+      <marquee behavior="viewport" direction="" class="header"
+        >hasan chatroom</marquee
+      >
     </header>
     <div class="base">
       <aside>
@@ -22,13 +24,12 @@
           </li>
         </ul>
         <!-- --------------------------------- contacts -------->
-        <div class="contact-list" id="contactList">
-        </div>
+        <div class="contact-list" id="contactList"></div>
       </aside>
       <main>
         <!-- ----------------- profile chat ------------- -->
         <div class="profile-chat" id="profileChat">
-          <div class="pp"><img src="../pics/pp.jpg" alt=""></div>
+          <div class="pp"><img src="../pics/pp.jpg" alt="" /></div>
           <div class="profile-name-box">
             <div class="info">
               <div class="name-profile">mr.zombie</div>
@@ -62,14 +63,16 @@
           <button class="input-icon">
             <i class="fa-solid fa-paperclip"></i>
           </button>
-          <input
-            type="text"
-            class="input-text"
-            placeholder="write a message..."
-            id="text-box"
-            name="message"
-            autocomplete="off"
-          />
+          <form id="messageForm" method="POST">
+            <input
+              type="text"
+              class="input-text"
+              placeholder="write a message..."
+              id="text-box"
+              name="message"
+              autocomplete="off"
+            />
+          </form>
           <button class="input-icon">
             <i class="fa-regular fa-face-smile"></i>
           </button>
@@ -79,6 +82,6 @@
         </div>
       </main>
     </div>
+    <script src="../js/chatroom.js"></script>
   </body>
-  <script src="../js/chatroom.js"></script>
 </html>

@@ -152,9 +152,3 @@ input:focus ~ label {
 .input-box input:invalid {
   border-color: #dc3545;
 }
-
-.btn.loading {
-  position: relative;
-  pointer-events: none;
-  opacity: 0.8;
-}
