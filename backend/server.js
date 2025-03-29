@@ -1,44 +1,42 @@
+// Import required packages
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+
+// Create express app
+const app = express();
+
+// Basic settings
+app.use(cors());  // Allow requests from other domains
+app.use(express.json());  // Parse JSON data in requests
+app.use(express.static(path.join(__dirname, '../frontend')));  // Serve frontend files
+
+// Import routes
 const chatRoutes = require('./routes/chatRoutes');
 const router = require('./routes/router');
 
-const app = express();
+// Use routes
+app.use('/', router);  // Main routes
+app.use('/api/chat', chatRoutes);  // Chat API routes
 
-// CORS settings
-app.use(cors());
-
-// JSON settings
-app.use(express.json());
-
-// Static files for frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
-
-// Routes
-app.use('/', router);
-
-// API routes
-app.use('/api/chat', chatRoutes);
-
-// Main page
+// Serve main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-// Chat room page
+// Serve chat page
 app.get('/chatroom', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/chatroom.html'));
 });
 
-// Error handling
+// Handle errors
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Server Error' });
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;  // Server port
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

@@ -4,64 +4,59 @@ const path = require('path');
 const CHATS_FILE = path.join(__dirname, '../../data/chatsdb');
 
 class ChatController {
-    // Get messages for a specific user
+    // Get messages for a user
     getUserMessages(req, res) {
         try {
-            const userId = parseInt(req.params.userId);
+            // Get user ID from URL
+            const userId = req.params.userId;
             
-            if (!fs.existsSync(CHATS_FILE)) {
-                console.error('Chats file not found at path:', CHATS_FILE);
-                return res.status(404).json({ error: 'Chats file not found' });
-            }
-            
+            // Read messages from file
             const messages = JSON.parse(fs.readFileSync(CHATS_FILE, 'utf8'));
-            const userChat = messages.find(chat => chat.userId === userId);
             
-            if (!userChat) {
-                return res.status(404).json({ error: 'User chat not found' });
-            }
+            // Find user's messages
+            const userMessages = messages.find(chat => chat.userId === userId);
             
-            res.json(userChat);
+            // Send response
+            res.json(userMessages ? userMessages.messages : []);
         } catch (error) {
-            console.error('Error reading user messages:', error);
-            res.status(500).json({ error: 'Error reading user messages' });
+            console.error('Error:', error);
+            res.status(500).json({ error: 'Error getting messages' });
         }
     }
 
-    // Send new message
+    // Send a message
     sendMessage(req, res) {
         try {
-            const { userId, message } = req.body;
+            // Get data from request
+            const userId = req.body.userId;
+            const message = req.body.message;
             
-            if (!fs.existsSync(CHATS_FILE)) {
-                console.error('Chats file not found at path:', CHATS_FILE);
-                return res.status(404).json({ error: 'Chats file not found' });
-            }
-            
+            // Read messages from file
             const messages = JSON.parse(fs.readFileSync(CHATS_FILE, 'utf8'));
             
+            // Find user's chat
             let userChat = messages.find(chat => chat.userId === userId);
             
+            // Create new chat if not found
             if (!userChat) {
-                userChat = {
-                    userId: userId,
-                    message: {}
-                };
+                userChat = { userId, messages: [] };
                 messages.push(userChat);
             }
-
-            const messageId = Object.keys(userChat.message).length + 1;
-            userChat.message[messageId] = {
-                sender: "user",
+            
+            // Add new message
+            userChat.messages.push({
+                sender: userId,
                 text: message,
                 date: new Date().toISOString()
-            };
-
+            });
+            
+            // Save to file
             fs.writeFileSync(CHATS_FILE, JSON.stringify(messages, null, 2));
             
-            res.json({ success: true, message: userChat.message[messageId] });
+            // Send response
+            res.json({ success: true });
         } catch (error) {
-            console.error('Error sending message:', error);
+            console.error('Error:', error);
             res.status(500).json({ error: 'Error sending message' });
         }
     }

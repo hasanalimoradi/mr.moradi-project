@@ -1,11 +1,13 @@
+// Import required packages
 const express = require('express');
 const router = express.Router();
 const chatController = require('../controllers/chatController');
 
-// دریافت پیام‌های یک کاربر خاص
+// Get messages for a user
 router.get('/messages/:userId', chatController.getUserMessages);
 
-// ارسال پیام جدید
-router.post('/messages', chatController.sendMessage);
+// Send a message
+router.post('/send', chatController.sendMessage);
 
+// Export router
 module.exports = router;
