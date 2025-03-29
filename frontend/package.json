@@ -1,0 +1,11 @@
+{
+  "name": "chat-frontend",
+  "version": "1.0.0",
+  "description": "فرانت‌اند چت",
+  "scripts": {
+    "start": "live-server --port=8080"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+} 
